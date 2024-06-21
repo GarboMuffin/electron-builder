@@ -39,14 +39,23 @@
 <p><code id="FileAssociation-name">name</code> String | “undefined” - The name. e.g. <code>PNG</code>. Defaults to <code>ext</code>.</p>
 </li>
 <li>
-<p><code id="FileAssociation-description">description</code> String | “undefined” - <em>windows-only.</em> The description.</p>
+<p><code id="FileAssociation-description">description</code> String | “undefined” - <em>windows and linux only.</em> The description.</p>
+</li>
+<li>
+<p><code id="FileAssociation-acronym">acronym</code> String | “undefined” - <em>linux-only.</em> The acronym.</p>
 </li>
 <li>
 <p><code id="FileAssociation-mimeType">mimeType</code> String | “undefined” - <em>linux-only.</em> The mime-type.</p>
 </li>
 <li>
+<p><code id="FileAssociation-parentMimeType">parentMimeType</code> String | “undefined” - <em>linux-only.</em> Parent mime type that instances of this file inherit from.</p>
+</li>
+<li>
 <p><code id="FileAssociation-icon">icon</code> String | “undefined” - The path to icon (<code>.icns</code> for MacOS and <code>.ico</code> for Windows), relative to <code>build</code> (build resources directory). Defaults to <code>${firstExt}.icns</code>/<code>${firstExt}.ico</code> (if several extensions specified, first is used) or to application icon.</p>
-<p>Not supported on Linux, file issue if need (default icon will be <code>x-office-document</code>). Not supported on MSI.</p>
+<p>Not supported on Linux (see <code>linuxIconName</code> instead). Not supported on MSI.</p>
+</li>
+<li>
+<p><code id="FileAssociation-linuxIconName">linuxIconName</code> String | “undefined” - <em>linux-only</em> The name of the icon to use, defaults to <code>x-office-document</code>.</p>
 </li>
 <li>
 <p><code id="FileAssociation-role">role</code> = <code>Editor</code> String - <em>macOS-only</em> The app’s role with respect to the type. The value can be <code>Editor</code>, <code>Viewer</code>, <code>Shell</code>, or <code>None</code>. Corresponds to <code>CFBundleTypeRole</code>.</p>

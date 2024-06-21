@@ -17,9 +17,14 @@ export interface FileAssociation {
   readonly name?: string | null
 
   /**
-   * *windows-only.* The description.
+   * *windows and linux only.* The description.
    */
   readonly description?: string | null
+
+  /**
+   * *linux-only.* The acronym.
+   */
+  readonly acronym?: string | null
 
   /**
    * *linux-only.* The mime-type.
@@ -27,11 +32,21 @@ export interface FileAssociation {
   readonly mimeType?: string | null
 
   /**
+   * *linux-only.* Parent mime type that instances of this file inherit from.
+   */
+  readonly parentMimeType?: string | null
+
+  /**
    * The path to icon (`.icns` for MacOS and `.ico` for Windows), relative to `build` (build resources directory). Defaults to `${firstExt}.icns`/`${firstExt}.ico` (if several extensions specified, first is used) or to application icon.
    *
-   * Not supported on Linux, file issue if need (default icon will be `x-office-document`). Not supported on MSI.
+   * Not supported on Linux (see `linuxIconName` instead). Not supported on MSI.
    */
   readonly icon?: string | null
+
+  /**
+   * *linux-only* The name of the icon to use, defaults to `x-office-document`.
+   */
+  readonly linuxIconName?: string | null
 
   /**
    * *macOS-only* The app’s role with respect to the type. The value can be `Editor`, `Viewer`, `Shell`, or `None`. Corresponds to `CFBundleTypeRole`.

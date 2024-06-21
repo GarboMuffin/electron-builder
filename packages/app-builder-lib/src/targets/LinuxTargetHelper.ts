@@ -34,8 +34,10 @@ export class LinuxTargetHelper {
 
       const data = `<mime-type type="${fileAssociation.mimeType}">
   <glob pattern="*.${fileAssociation.ext}"/>
-    ${fileAssociation.description ? `<comment>${fileAssociation.description}</comment>` : ""}
-  <icon name="x-office-document" />
+  ${fileAssociation.parentMimeType ? `<sub-class-of type="${fileAssociation.parentMimeType}"/>` : ""}
+  ${fileAssociation.description ? `<comment>${fileAssociation.description}</comment>` : ""}
+  ${fileAssociation.acronym ? `<acronym>${fileAssociation.acronym}</acronym>` : ""}
+  <generic-icon name="${fileAssociation.linuxIconName || "x-office-document"}" />
 </mime-type>`
       items.push(data)
     }
